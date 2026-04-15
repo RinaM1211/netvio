@@ -14,20 +14,19 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
             $table->foreignId('user_id')
-                  ->nullable()
-                  ->constrained()
-                  ->cascadeOnUpdate()
-                  ->nullOnDelete();
+              ->nullable()
+              ->constrained()
+              ->nullOnDelete();
+        
             $table->foreignId('status_id')
-                  ->nullable()
-                  ->constrained()
-                  ->cascadeOnUpdate()
-                  ->nullOnDelete();      
-        });
-    }
+              ->nullable()
+              ->constrained()
+              ->nullOnDelete();
+    });
+}
 
     /**
      * Reverse the migrations.
