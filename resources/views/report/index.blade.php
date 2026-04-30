@@ -47,7 +47,7 @@
                 </form>
             </div>
         @endforeach
-        {{ $reports->links() }}
+        {{ $reports->appends(request()->query())->links() }}
     </div>
 </body>
 </html>
