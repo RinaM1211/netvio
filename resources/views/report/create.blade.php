@@ -5,6 +5,7 @@
     <title>Создание заявки</title>
 </head>
 <body>
+<x-app-layout>
     <div class="container">
         <h1>Новая заявка</h1>
         
@@ -20,5 +21,6 @@
             <button type="submit">Создать</button>
         </form>
     </div>
+</x-app-layout>
 </body>
 </html>
