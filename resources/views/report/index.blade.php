@@ -12,13 +12,20 @@
         <h1>Список заявок</h1>
         
         <a href="{{ route('reports.create') }}">Создать заявку</a>
-        <div>
+        
+        <x-filter :sort=$sort :status=$status> </x-filter>
+       
+       
+       
+       
+        <!-- <div>
             <span>Сортировкапо дате создания:</span>
             <a href="{{route('reports.index',['sort'=>'desc','status'=>$status]) }}">Сначала новые</a>
             <a href="{{route('reports.index',['sort'=>'asc','status'=>$status]) }}">Сначала старые</a>
         </div>
         <div>
             <p>Фильтрация по статусу заявки</p>
+
             <ul>
                 @foreach ($statuses as $status)
                 <li>
@@ -31,13 +38,16 @@
                 @endforeach
             </ul>
         </div>
-        
+         -->
         @foreach ($reports as $report)
             <div class="card">
                 <h3>Автомобиль: {{ $report->number }}</h3>
                 <p>Описание: {{ $report->description }}</p>
                 <p>Дата создания: {{ $report->created_at }}</p>
-                <p>Статус:{{$report->status->name}}</p>
+                
+                <x-status :type="$report->status->id">
+                    {{$report->status->name}}
+                </x-status>
                 
                 <a href="{{ route('reports.edit', $report) }}">Редактировать</a>
                 

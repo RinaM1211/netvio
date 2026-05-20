@@ -40,6 +40,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
         Route::patch('/report/{report}/status', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
     });
+    Route::get('/index',function(){
+         return view('index');
+    });
+
+    Route::get('/second',function(){
+        return view('second');
+   });
     
 });
 
