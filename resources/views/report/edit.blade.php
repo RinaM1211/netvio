@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Редактирование заявки</title>
 </head>
+@Vite(['resources/css/app.css', 'resources/js/app.js'])
+
 <body>
-<x-app-layout>
+  
+<x-app-layout>  
+    @include('layouts.flash-messages')
     <div class="container">
         <h1>Редактирование заявки</h1>
         

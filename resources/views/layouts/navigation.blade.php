@@ -12,9 +12,8 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                   
+                
                     <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
                         {{ __('Список заявлений') }}
                     </x-nav-link>
@@ -22,6 +21,14 @@
                     <x-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
                         {{ __('Создать заявление') }}
                     </x-nav-link>
+                     @auth
+                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                        {{ __('Панель администратора') }}
+                    </x-nav-link>
+                    @endif
+                    @endauth
+
                 </div>
             </div>
 
@@ -73,9 +80,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            
+         
             <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
                 {{ __('Список заявлений') }}
             </x-responsive-nav-link>
@@ -83,6 +89,13 @@
             <x-responsive-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
                 {{ __('Создать заявление') }}
             </x-responsive-nav-link>
+            @auth
+            @if(Auth::user()->role === 'admin')
+            <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                {{ __('Панель администратора') }}
+            </x-nav-link>
+            @endif
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

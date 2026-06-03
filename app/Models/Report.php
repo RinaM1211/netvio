@@ -15,7 +15,8 @@ class Report extends Model
         'number',
         'description',
         'user_id',
-        'status_id'
+        'status_id',
+        'path_img'
     ];
 
     public function status():BelongsTo{

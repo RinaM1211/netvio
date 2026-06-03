@@ -1,6 +1,8 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
+import mask from '@alpinejs/mask';
+Alpine.plugin(mask);
 
 window.Alpine = Alpine;
 
@@ -13,3 +15,5 @@ for (let elem of selectElements) {
         this.form.submit(); 
     });
 }
+
+import.meta.glob('../images/**/*.png');
